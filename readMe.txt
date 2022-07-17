@@ -1,12 +1,12 @@
-#NAME: tinyQuery
+NAME: tinyQuery
 
 DESC: tinyQuery is a simple, tiny and lightweight PHP library that simplifies writing MySQL queries in PHP as well as doing same in a single line of code possible.
 
-#AUTHOR: Joseph Omamode (DevOmamode)
+AUTHOR: Joseph Omamode (DevOmamode)
 
-#AUTHOR URL: https://devomamode.github.io
+AUTHOR URL: https://devomamode.github.io
 
-#DEVELOPERS' GUIDE
+DEVELOPERS' GUIDE
 tinyQuery is essentially a class which enables connection to a database and provides basic methods for performing CRUD operations on that database. Therefore, to use, you need to create an instance of the class.
 
 <?php
@@ -15,7 +15,7 @@ require_once("relative_path_to_tinyQuery/class.tinyQuery.php");
 $tiny_query = new tinyQuery("localhost","database_username","database_password","database");
 ?>
 
-#INSERT DATA INTO TABLE (insertData())
+INSERT DATA INTO TABLE (insertData())
 
 The insertData() method inserts data into a database. Returns a Boolean which if true denotes a successful data insertion else failure.
 
@@ -40,7 +40,7 @@ if ($tiny_query->insertData("metadata", ["name","content"], ["s","s"], ["author"
 $tiny_query->insertData("posts", ["title","cat_id"], ["s","i"], ["Hello World",$_POST["category_id"]]);
 ?>
 
-#UPDATE TABLE DATA (updateData())
+UPDATE TABLE DATA (updateData())
 
 The updateData() method updates the existing data of a table in a database. Returns a Boolean which if true denotes a successful data update else failure.
 
@@ -66,7 +66,7 @@ if ($tiny_query->updateData("metadata", ["content"], "name = 'Joseph Omamode'", 
 $tiny_query->updateData("users",["status"],"",["i"],[1]);
 ?>
 
-#DELETE A ROW BASED ON ID (deleteData())
+DELETE A ROW BASED ON ID (deleteData())
 
 The deleteData() method basically deletes a row from a table by its id if such column is available. Returns a Boolean which if true means the row was successfully deleted.
  
@@ -80,7 +80,7 @@ deleteData("files", 5); //delete row where id is 5 in the files table.
 
 deleteData("unverified_accounts"); //deletes all rows from the unverified_accounts table.
 
-#DELETE ROWS BASED ON A CONDITION (deleteCond())
+DELETE ROWS BASED ON A CONDITION (deleteCond())
 
 The deleteCond() method deletes all rows that meet a specified condition. Returns Boolean (true if successful).
 
@@ -96,7 +96,7 @@ $tiny_query->deleteCond("comments","author = 'Omamode'");
 $tiny_query->deleteCond("accounts","status = 0 AND deadline >= ".$deadline);
 ?>
 
-#COUNT ROWS (dataCount())
+COUNT ROWS (dataCount())
 The dataCount() method counts the number of rows in a table. Returns an Integer which is the number of rows available.
 
 EXPECTED PARAMETERS:
@@ -111,7 +111,7 @@ $tiny_query->dataCount("users","age < 18");
 $tiny_query->dataCount("comments");
 ?>
 
-#SELECT MULTIPLE ROWS (multiData())
+SELECT MULTIPLE ROWS (multiData())
 
 The multiData() method selects more than one row or record from a table. Returns the result of the query which can then be counted using num_rows or looped over.
 
@@ -131,7 +131,7 @@ $tiny_query->multiData("posts");
 $tiny_query->multiData("users","id ASC",10,20);
 ?>
 
-#SELECT MULTIPLE ROWS BASED ON A CONDITION (multiCond())
+SELECT MULTIPLE ROWS BASED ON A CONDITION (multiCond())
 
 The multiCond() method selects more than one row or record from a table but based on a condition. Returns the result of the query which can then be counted using num_rows or looped over.
 
@@ -153,7 +153,7 @@ $tiny_query->multiCond("registered_users", "username = 'Omamode'");
 $tiny_query->multiCond("registered_users", "username = 'John'", "id DESC", 5, 0)
 ?>
 
-#SELECT A SINGLE ROW (singleData())
+SELECT A SINGLE ROW (singleData())
 
 The singleData() method selects a single row from a table based on a specified condition.
 
@@ -175,7 +175,7 @@ $tiny_query->singleData("comments", "id = ?", ["i"], 1); //--- RECOMMENDED WHERE
 
 The two queries above does same thing. Just that, the 2nd is secured and as such recommended especially when users supplies values for the condition.
 
-#EXECUTE JUST ANY QUERY (executeQuery())
+EXECUTE JUST ANY QUERY (executeQuery())
 The executeQuery() method executes just any SQL query and is useful when there is need to just execute a query. Returns Boolean (true if the query was successfully executed).
 
 EXPECTED PARAMETERS:
@@ -186,7 +186,7 @@ EXAMPLE:
 $tiny_query->executeQuery("UPDATE posts SET views = views + 1 WHERE id = ".$post_id);
 ?>
 
-#CLOSE MYSQL CONNECTION (close())
+CLOSE MYSQL CONNECTION (close())
 The close() method closes the MYSQL connection object.
 
 EXAMPLE:
